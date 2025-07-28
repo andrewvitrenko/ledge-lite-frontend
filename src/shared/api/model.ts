@@ -14,3 +14,7 @@ export type TError = {
   error?: string;
   statusCode: number;
 };
+
+export type TRequestOptions = {
+  auth?: boolean;
+};
