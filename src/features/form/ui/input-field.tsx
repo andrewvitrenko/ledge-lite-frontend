@@ -2,12 +2,12 @@ import { FC, HTMLProps, memo } from 'react';
 
 import { cn } from '@/shared/lib/utils';
 
-import { TFieldConfig } from '../model';
+import { TFieldProps } from '../model';
 import { ErrorMessage } from './error-message';
 import { InputBase } from './input-base';
 import { Label } from './label';
 
-export type TInputFieldProps = TFieldConfig &
+export type TInputFieldProps = TFieldProps &
   HTMLProps<HTMLInputElement> & {
     className?: string;
     containerClassName?: string;

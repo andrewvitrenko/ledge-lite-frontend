@@ -4,11 +4,11 @@ import { FC, HTMLProps, memo } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import { useFieldError } from '@/features/form/lib/use-field-error';
-import { TFieldConfig } from '@/features/form/model';
+import { TFieldProps } from '@/features/form/model';
 import { cn } from '@/shared/lib/utils';
 
 export type TInputBaseProps = HTMLProps<HTMLInputElement> &
-  Pick<TFieldConfig, 'name' | 'shouldUnregister'>;
+  Pick<TFieldProps, 'name' | 'shouldUnregister'>;
 
 export const InputBase: FC<TInputBaseProps> = memo(
   ({ className, type = 'text', name, shouldUnregister, ...props }) => {

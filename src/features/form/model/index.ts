@@ -1,4 +1,4 @@
-export type TFieldConfig = {
+export type TFieldProps = {
   name: string;
   shouldUnregister?: boolean;
   required?: boolean;

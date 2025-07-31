@@ -5,7 +5,7 @@ import { cva } from 'class-variance-authority';
 import { FC, HTMLProps, memo } from 'react';
 
 import { useFieldError } from '@/features/form/lib/use-field-error';
-import { TFieldConfig } from '@/features/form/model';
+import { TFieldProps } from '@/features/form/model';
 import { cn } from '@/shared/lib/utils';
 
 const labelVariants = cva(
@@ -24,7 +24,7 @@ const labelVariants = cva(
 );
 
 export type TLabelProps = HTMLProps<HTMLLabelElement> &
-  Pick<TFieldConfig, 'name' | 'required' | 'label'>;
+  Pick<TFieldProps, 'name' | 'required' | 'label'>;
 
 export const Label: FC<TLabelProps> = memo(
   ({ className, name, required, label, ...props }) => {

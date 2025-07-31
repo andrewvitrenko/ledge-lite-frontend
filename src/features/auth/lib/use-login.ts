@@ -11,7 +11,7 @@ export const useLogin = (): TUseLogin => {
     mutationKey: ['auth', 'login'],
     mutationFn: (payload) => Auth.login(payload),
     onError: (error) => toast.error(error.message),
-    onSuccess: async ({ access_token }) => {
+    onSuccess: ({ access_token }) => {
       Cookies.set('access_token', access_token);
     },
   });

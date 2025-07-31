@@ -10,6 +10,7 @@ type TErrorMessageProps = {
 
 export const ErrorMessage: FC<TErrorMessageProps> = memo(({ name }) => {
   const error = useFieldError(name);
+  console.log(`Error for field "${name}":`, error);
 
   if (!error) return null;
 
