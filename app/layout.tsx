@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import { FC, PropsWithChildren } from 'react';
 
+import { QueryProvider } from '@/features/query-provider';
 import { Toaster } from '@/shared/ui/sonner';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
 
 const RootLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider
           attribute="class"
@@ -44,7 +45,7 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) => {
           defaultTheme="system"
           disableTransitionOnChange
         >
-          {children}
+          <QueryProvider>{children}</QueryProvider>
           <Toaster />
         </ThemeProvider>
       </body>
