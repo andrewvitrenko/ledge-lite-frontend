@@ -23,7 +23,7 @@ export class Api {
   >(
     method: EMethod,
     url: string,
-    config: Omit<AxiosRequestConfig<TPayload>, 'url' | 'method'>,
+    config: Omit<AxiosRequestConfig<TPayload>, 'url' | 'method'> = {},
     options?: TRequestOptions,
   ): Promise<TResponse> {
     try {
@@ -39,7 +39,7 @@ export class Api {
         TResponse,
         AxiosResponse<TResponse>,
         TPayload
-      >({ url, method, ...config });
+      >({ url, method, ...config, signal: options?.signal });
 
       return data;
     } catch (e) {
@@ -47,7 +47,7 @@ export class Api {
         const message =
           e.response?.data.message ?? 'Network error. Please try again later';
 
-        throw new Error(message);
+        throw new Error(message, { cause: e });
       }
 
       throw new Error('Something went wrong. Please try again later', {

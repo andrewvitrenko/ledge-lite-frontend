@@ -17,4 +17,5 @@ export type TError = {
 
 export type TRequestOptions = {
   auth?: boolean;
+  signal?: AbortSignal;
 };
