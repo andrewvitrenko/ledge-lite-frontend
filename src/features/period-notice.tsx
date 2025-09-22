@@ -21,7 +21,7 @@ export const PeriodNotice: FC = memo(() => {
   if (diff < 0) {
     return (
       <Alert className="border-red-200 bg-red-50">
-        <AlertTriangle className="h-4 w-4 text-red-600" />
+        <AlertTriangle className="h-4 w-4 !text-red-600" />
         <AlertDescription className="text-red-800">
           This period ended on {format(period.endDate, 'MMM d, yyyy')}. Consider
           closing it to finalize your financial summary.
@@ -36,7 +36,7 @@ export const PeriodNotice: FC = memo(() => {
   if (diff <= 7) {
     return (
       <Alert className="border-yellow-200 bg-yellow-50">
-        <Calendar className="h-4 w-4 text-yellow-600" />
+        <Calendar className="h-4 w-4 !text-yellow-600" />
         <AlertDescription className="text-yellow-800">
           This period ends on {format(period.endDate, 'MMM d, yyyy')}. Start
           planning for the next period.
