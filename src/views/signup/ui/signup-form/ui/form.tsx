@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { FC, memo, PropsWithChildren, useCallback } from 'react';
-import { SubmitHandler, useFormContext, useFormState } from 'react-hook-form';
+import { SubmitHandler, useFormContext } from 'react-hook-form';
 
 import { useSignup } from '@/features/auth/lib/use-signup';
 import { omit } from '@/shared/lib/omit';
@@ -11,9 +11,6 @@ import { TSignupForm } from '../model';
 
 export const Form: FC<PropsWithChildren> = memo(({ children }) => {
   const { mutateAsync } = useSignup();
-
-  const { errors } = useFormState();
-  console.log('Form errors:', errors);
 
   const router = useRouter();
 
