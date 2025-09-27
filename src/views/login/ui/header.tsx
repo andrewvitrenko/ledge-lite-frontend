@@ -2,9 +2,6 @@ import { FC, memo } from 'react';
 
 import { Logo } from '@/shared/ui/logo';
 
-import { Subtitle } from './subtitle';
-import { Title } from './title';
-
 export const Header: FC = memo(() => {
   return (
     <header className="space-y-4 text-center">
@@ -12,8 +9,10 @@ export const Header: FC = memo(() => {
         <Logo className="size-16" />
       </div>
       <div className="space-y-2">
-        <Title />
-        <Subtitle />
+        <h1 className="text-3xl font-bold tracking-tight">Welcome back</h1>
+        <p className="text-muted-foreground">
+          Sign in to your LedgerLite account
+        </p>
       </div>
     </header>
   );

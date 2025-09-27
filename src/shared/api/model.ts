@@ -4,7 +4,7 @@ export const EMethod = {
   GET: 'GET',
   POST: 'POST',
   DELETE: 'DELETE',
-  PUT: 'PUT',
+  PATCH: 'PATCH',
 } as const;
 
 export type EMethod = ValueOf<typeof EMethod>;

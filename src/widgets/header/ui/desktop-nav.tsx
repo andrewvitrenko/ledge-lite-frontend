@@ -1,29 +1,12 @@
 'use client';
 
-import { Calendar, CreditCard, Home } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FC, memo } from 'react';
 
 import { cn } from '@/shared/lib/utils';
 
-const navigation = [
-  {
-    name: 'Dashboard',
-    href: '/dashboard',
-    icon: Home,
-  },
-  {
-    name: 'Transactions',
-    href: '/transactions',
-    icon: CreditCard,
-  },
-  {
-    name: 'Periods',
-    href: '/periods',
-    icon: Calendar,
-  },
-];
+import { navigation } from '../config';
 
 export const DesktopNav: FC = memo(() => {
   const pathname = usePathname();
@@ -37,8 +20,8 @@ export const DesktopNav: FC = memo(() => {
             key={item.name}
             href={item.href}
             className={cn(
-              'hover:text-primary flex items-center text-sm font-medium transition-colors',
-              isActive ? 'text-foreground' : 'text-muted-foreground',
+              'hover:text-primary text-muted-foreground flex items-center text-sm font-medium transition-colors',
+              { ['text-foreground']: isActive },
             )}
           >
             <item.icon className="mr-2 h-4 w-4" />

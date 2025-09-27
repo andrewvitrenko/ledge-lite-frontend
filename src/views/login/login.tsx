@@ -16,7 +16,7 @@ import { SignUpLink } from './ui/sign-up-link';
 
 export const LoginPage: FC = memo(() => {
   return (
-    <div className="from-primary/5 via-background to-secondary/5 flex min-h-screen items-center justify-center bg-gradient-to-br p-4">
+    <div className="from-primary/5 via-background to-secondary/5 flex min-h-dvh items-center justify-center bg-gradient-to-br p-4">
       <div className="w-full max-w-md space-y-8">
         {/* Logo and Header */}
         <Header />

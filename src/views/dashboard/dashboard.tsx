@@ -14,7 +14,7 @@ export const DashboardPage: FC = () => {
   const hasNoPeriods = !isFetching && data?.length === 0;
 
   return (
-    <div className="bg-background min-h-screen">
+    <div className="bg-background min-h-dvh">
       <Header />
 
       {hasNoPeriods ? <Placeholder /> : <Content />}

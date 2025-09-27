@@ -17,10 +17,7 @@ export class Api {
     });
   }
 
-  protected async request<
-    TResponse extends object,
-    TPayload extends object = object,
-  >(
+  protected async request<TResponse, TPayload extends object = object>(
     method: EMethod,
     url: string,
     config: Omit<AxiosRequestConfig<TPayload>, 'url' | 'method'> = {},
