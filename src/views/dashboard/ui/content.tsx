@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { BarChart3, Clock, PieChart } from 'lucide-react';
+import { BarChart3, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { FC, memo } from 'react';
 
@@ -18,6 +18,7 @@ import {
 } from '@/shared/ui/card';
 
 import { mockChartData } from '../config/mock-data';
+import { CategoriesOverview } from './categories-overview';
 import { KPITiles } from './kpi-tiles';
 import { Presets } from './presets';
 import { QuickActions } from './quick-actions';
@@ -52,51 +53,7 @@ export const Content: FC = memo(() => {
         {/* Charts Section */}
         <div className="space-y-6">
           {/* Category Breakdown Chart */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <PieChart className="h-5 w-5" />
-                Expense Breakdown
-              </CardTitle>
-              <CardDescription>
-                Spending by category this period
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              {isLoading ? (
-                <div className="bg-muted h-64 animate-pulse rounded" />
-              ) : mockChartData.categoryBreakdown.length ? (
-                <div className="space-y-4">
-                  {mockChartData.categoryBreakdown.map((item) => (
-                    <div
-                      key={item.categoryId}
-                      className="flex items-center justify-between"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="h-4 w-4 rounded-full"
-                          style={{ backgroundColor: item.color }}
-                        />
-                        <span className="font-medium">{item.categoryName}</span>
-                      </div>
-                      <div className="text-right">
-                        <div className="font-medium">
-                          {formatCurrency(item.amount, 'USD')}
-                        </div>
-                        <div className="text-muted-foreground text-sm">
-                          {item.percentage}%
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="text-muted-foreground flex h-64 items-center justify-center">
-                  No expense data available
-                </div>
-              )}
-            </CardContent>
-          </Card>
+          <CategoriesOverview />
 
           {/* Account Distribution */}
           <Card>

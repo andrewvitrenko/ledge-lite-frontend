@@ -19,3 +19,13 @@ export type TRequestOptions = {
   auth?: boolean;
   signal?: AbortSignal;
 };
+
+export type TPaginationOptions = {
+  page: number;
+  take: number;
+};
+
+export type TPaginatedResponse<T> = {
+  data: T[];
+  total: number;
+};

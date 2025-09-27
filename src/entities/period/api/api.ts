@@ -1,7 +1,10 @@
 import { Api, EMethod, TRequestOptions } from '@/shared/api';
 
 import { TPeriod } from '../model';
-import { TGetPeriodOverviewResponse } from './model';
+import {
+  TGetCategoriesOverviewResponse,
+  TGetPeriodOverviewResponse,
+} from './model';
 
 class PeriodApiFactory extends Api {
   constructor() {
@@ -30,6 +33,18 @@ class PeriodApiFactory extends Api {
       EMethod.GET,
       `/${periodId}/overview`,
       undefined,
+      { auth: true, ...opts },
+    );
+  }
+
+  public getCategoriesOverview(
+    periodId: string,
+    opts?: Omit<TRequestOptions, 'auth'>,
+  ): Promise<TGetCategoriesOverviewResponse> {
+    return this.request<TGetCategoriesOverviewResponse>(
+      EMethod.GET,
+      `/${periodId}/categories-overview`,
+      { params: { page: 1, take: 3 } },
       { auth: true, ...opts },
     );
   }
