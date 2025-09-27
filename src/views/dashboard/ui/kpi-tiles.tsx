@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/shared/ui/card';
 
 import { useGetPeriodOverview } from '../api/use-get-period-overview';
 
-const moneyStateVariants = cva('text-2xl fond-bold', {
+const moneyStateVariants = cva('text-2xl font-bold', {
   variants: {
     state: {
       positive: 'text-green-600',

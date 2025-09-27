@@ -2,7 +2,7 @@ import { cva } from 'class-variance-authority';
 
 import { EPeriodStatus } from '@/entities/period/model';
 
-export const statusVariants = cva('text-sx', {
+export const statusVariants = cva('text-xs', {
   variants: {
     status: {
       [EPeriodStatus.ACTIVE]: 'bg-green-100 text-green-800 border-green-200',
