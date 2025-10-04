@@ -2,6 +2,8 @@ import { Calendar } from 'lucide-react';
 import { FC, memo, useCallback, useEffect } from 'react';
 import { useShallow } from 'zustand/shallow';
 
+import { useGetActivePeriod } from '@/entities/period/lib/use-get-active-period';
+import { useGetPeriods } from '@/entities/period/lib/use-get-periods';
 import { usePeriodStore } from '@/entities/period/store';
 import { cn } from '@/shared/lib/utils';
 import {
@@ -12,8 +14,6 @@ import {
   SelectValue,
 } from '@/shared/ui/select';
 
-import { useGetActivePeriod } from './api/use-get-active-period';
-import { useGetPeriods } from './api/use-get-periods';
 import { PeriodLabel } from './ui/period-label';
 import { PeriodOption } from './ui/period-option';
 import { Placeholder } from './ui/placeholder';

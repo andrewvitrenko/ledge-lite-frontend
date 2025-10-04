@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { FC, memo } from 'react';
 
 import { mockAccounts } from '@/entities/account/config/mock-data';
+import { PeriodNotice } from '@/entities/period/ui/period-notice';
+import { PeriodSelector } from '@/entities/period/ui/period-selector';
 import { mockTransactions } from '@/entities/transaction/config/mock-data';
-import { PeriodNotice } from '@/features/period-notice';
-import { PeriodSelector } from '@/features/period-selector';
 import { formatCurrency } from '@/shared/lib/format-currency';
 import { Button } from '@/shared/ui/button';
 import {
