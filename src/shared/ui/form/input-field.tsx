@@ -1,11 +1,13 @@
 import { FC, HTMLProps, memo } from 'react';
+import { useFormContext } from 'react-hook-form';
 
 import { cn } from '@/shared/lib/utils';
+import { Input } from '@/shared/ui/input';
+import { Label } from '@/shared/ui/label';
 
-import { TFieldProps } from '../model';
+import { useFieldError } from '../../lib/use-field-error';
+import { TFieldProps } from '../../model/form';
 import { ErrorMessage } from './error-message';
-import { InputBase } from './input-base';
-import { Label } from './label';
 
 export type TInputFieldProps = TFieldProps &
   HTMLProps<HTMLInputElement> & {
@@ -25,19 +27,21 @@ export const InputField: FC<TInputFieldProps> = memo(
     shouldUnregister,
     ...props
   }) => {
+    const error = useFieldError(name);
+    const { register } = useFormContext();
+
     return (
-      <div className={cn('space-y-2', containerClassName)}>
-        <Label
-          label={label}
-          name={name}
-          required={required}
-          className={labelClassName}
-        />
-        <InputBase
-          name={name}
+      <div className={cn('group space-y-2', containerClassName)}>
+        <Label htmlFor={name} className={labelClassName}>
+          {label}
+        </Label>
+        <Input
           className={className}
-          shouldUnregister={shouldUnregister}
           {...props}
+          {...register(name, { shouldUnregister, required })}
+          aria-required={required}
+          aria-invalid={!!error}
+          id={name}
         />
         <ErrorMessage name={name} />
       </div>

@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { FC, memo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
-import { InputField, PasswordField } from '@/features/form';
+import { InputField, PasswordField } from '@/shared/ui/form';
 
 import { defaultValues } from './config/default-values';
 import { validationSchema } from './config/validation';

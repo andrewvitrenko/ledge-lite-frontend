@@ -2,7 +2,7 @@
 
 import { FC, memo } from 'react';
 
-import { useFieldError } from '../lib/use-field-error';
+import { useFieldError } from '../../lib/use-field-error';
 
 type TErrorMessageProps = {
   name: string;

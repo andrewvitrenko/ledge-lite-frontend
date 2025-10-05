@@ -1,10 +1,10 @@
 import { FC, memo } from 'react';
 
 import { cn } from '@/shared/lib/utils';
+import { Label } from '@/shared/ui/label';
 
 import { ErrorMessage } from '../error-message';
 import { TInputFieldProps } from '../input-field';
-import { Label } from '../label';
 import { PasswordInput } from './ui/password-input';
 
 export const PasswordField: FC<Omit<TInputFieldProps, 'type'>> = memo(
@@ -14,24 +14,14 @@ export const PasswordField: FC<Omit<TInputFieldProps, 'type'>> = memo(
     className,
     containerClassName,
     labelClassName,
-    required,
-    shouldUnregister,
     ...props
   }) => {
     return (
-      <div className={cn('space-y-2', containerClassName)}>
-        <Label
-          label={label}
-          name={name}
-          required={required}
-          className={labelClassName}
-        />
-        <PasswordInput
-          name={name}
-          className={className}
-          shouldUnregister={shouldUnregister}
-          {...props}
-        />
+      <div className={cn('group space-y-2', containerClassName)}>
+        <Label htmlFor={name} className={labelClassName}>
+          {label}
+        </Label>
+        <PasswordInput name={name} className={className} {...props} />
         <ErrorMessage name={name} />
       </div>
     );

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { FC, memo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
-import { CheckboxField, InputField, PasswordField } from '@/features/form';
+import { CheckboxField, InputField, PasswordField } from '@/shared/ui/form';
 
 import { defaultValues } from './config/default-values';
 import { validationSchema } from './config/validation-schema';

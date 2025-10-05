@@ -2,24 +2,36 @@
 
 import { Eye, EyeOff } from 'lucide-react';
 import { FC, memo, useState } from 'react';
+import { useFormContext } from 'react-hook-form';
 
+import { useFieldError } from '@/shared/lib/use-field-error';
+import { TFieldProps } from '@/shared/model/form';
 import { cn } from '@/shared/lib/utils';
 import { Button } from '@/shared/ui/button';
+import { Input, TInputProps } from '@/shared/ui/input';
 
-import { InputBase, TInputBaseProps } from '../../input-base';
+export type TPasswordInputProps = Omit<TInputProps, 'type'> &
+  Pick<TFieldProps, 'required' | 'shouldUnregister' | 'name'>;
 
-export const PasswordInput: FC<Omit<TInputBaseProps, 'type'>> = memo(
-  ({ className, ...props }) => {
+export const PasswordInput: FC<TPasswordInputProps> = memo(
+  ({ className, name, required, shouldUnregister, ...props }) => {
+    const { register } = useFormContext();
+    const error = useFieldError(name);
+
     const [showPassword, setShowPassword] = useState(false);
 
     const onToggle = () => setShowPassword((prev) => !prev);
 
     return (
       <div className="relative">
-        <InputBase
+        <Input
           type={showPassword ? 'text' : 'password'}
           className={cn('h-11', className)}
           {...props}
+          {...register(name, { shouldUnregister, required })}
+          aria-required={required}
+          aria-invalid={!!error}
+          id={name}
         />
         <Button
           type="button"

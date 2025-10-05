@@ -6,7 +6,7 @@ import { useController } from 'react-hook-form';
 import { cn } from '@/shared/lib/utils';
 import { Checkbox } from '@/shared/ui/checkbox';
 
-import { TFieldProps } from '../model';
+import { TFieldProps } from '../../model/form';
 import { ErrorMessage } from './error-message';
 
 export type TCheckboxFieldProps = Omit<HTMLProps<HTMLButtonElement>, 'type'> &
