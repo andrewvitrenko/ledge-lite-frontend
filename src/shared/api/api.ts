@@ -1,12 +1,12 @@
 import axios, {
-  AxiosInstance,
-  AxiosRequestConfig,
-  AxiosResponse,
+  type AxiosInstance,
+  type AxiosRequestConfig,
+  type AxiosResponse,
   isAxiosError,
 } from 'axios';
 import cookies from 'js-cookie';
 
-import { EMethod, TError, TRequestOptions } from './model';
+import { EMethod, type TError, type TRequestOptions } from './model';
 
 export class Api {
   private http: AxiosInstance;

@@ -1,4 +1,4 @@
-import { ValueOf } from '../model/utils';
+import type { ValueOf } from '../model/utils';
 
 export const EMethod = {
   GET: 'GET',

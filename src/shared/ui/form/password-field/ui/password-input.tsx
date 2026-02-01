@@ -5,8 +5,8 @@ import { FC, memo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import { useFieldError } from '@/shared/lib/use-field-error';
-import { TFieldProps } from '@/shared/model/form';
 import { cn } from '@/shared/lib/utils';
+import { TFieldProps } from '@/shared/model/form';
 import { Button } from '@/shared/ui/button';
 import { Input, TInputProps } from '@/shared/ui/input';
 

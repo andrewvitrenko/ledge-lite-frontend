@@ -3,10 +3,11 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
-import { FC, PropsWithChildren } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
-import { QueryProvider } from '@/features/query-provider';
 import { Toaster } from '@/shared/ui/sonner';
+
+import { QueryProvider } from './providers/query-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
