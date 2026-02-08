@@ -1,13 +1,10 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { CheckIcon } from 'lucide-react';
-import React from 'react';
 
 import { cn } from '@/shared/lib/utils';
+import type { ComponentPropsWithRef, FC } from 'react';
 
-function Checkbox({
-  className,
-  ...props
-}: React.ComponentProps<typeof CheckboxPrimitive.Root>) {
+export const Checkbox: FC<ComponentPropsWithRef<typeof CheckboxPrimitive.Root>> = ({ className, ...props }) => {
   return (
     <CheckboxPrimitive.Root
       data-slot="checkbox"
@@ -25,6 +22,4 @@ function Checkbox({
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
   );
-}
-
-export { Checkbox };
+};

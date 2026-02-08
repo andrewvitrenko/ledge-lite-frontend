@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { FC, memo } from 'react';
+import type { FC } from 'react';
 
-export const LoginLink: FC = memo(() => {
+export const LoginLink: FC = () => {
   return (
     <p className="text-muted-foreground w-full text-center text-sm">
       Already have an account?{' '}
@@ -10,6 +10,4 @@ export const LoginLink: FC = memo(() => {
       </Link>
     </p>
   );
-});
-
-LoginLink.displayName = 'LoginLink';
+};

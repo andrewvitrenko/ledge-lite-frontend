@@ -3,7 +3,7 @@
   "tabWidth": 2,
   "semi": true,
   "trailingComma": "all",
-  "printWidth": 80,
+  "printWidth": 120,
   "endOfLine": "lf",
   "plugins": ["prettier-plugin-tailwindcss"],
   "tailwindFunctions": ["cva", "cx", "clsx", "cn", "twMerge", "twJoin", "tv"],

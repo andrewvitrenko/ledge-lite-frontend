@@ -3,7 +3,7 @@
 import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FC, memo, useState } from 'react';
+import { type FC, useState } from 'react';
 
 import { cn } from '@/shared/lib/utils';
 import { Button } from '@/shared/ui/button';
@@ -11,7 +11,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/shared/ui/sheet';
 
 import { navigation } from '../config';
 
-export const MobileNav: FC = memo(() => {
+export const MobileNav: FC = () => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
@@ -51,6 +51,4 @@ export const MobileNav: FC = memo(() => {
       </SheetContent>
     </Sheet>
   );
-});
-
-MobileNav.displayName = 'MobileNav';
+};

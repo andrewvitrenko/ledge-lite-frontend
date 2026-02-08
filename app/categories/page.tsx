@@ -1,4 +1,4 @@
-import { NextPage } from 'next';
+import type { NextPage } from 'next';
 
 import { CategoriesPage } from '@/views/categories';
 import { Header } from '@/widgets/header';

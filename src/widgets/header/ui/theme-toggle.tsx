@@ -1,11 +1,12 @@
 'use client';
+
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { FC, memo } from 'react';
+import type { FC } from 'react';
 
 import { Button } from '@/shared/ui/button';
 
-export const ThemeToggle: FC = memo(() => {
+export const ThemeToggle: FC = () => {
   const { setTheme, theme } = useTheme();
 
   return (
@@ -19,6 +20,4 @@ export const ThemeToggle: FC = memo(() => {
       <span className="sr-only">Toggle theme</span>
     </Button>
   );
-});
-
-ThemeToggle.displayName = 'ThemeToggle';
+};

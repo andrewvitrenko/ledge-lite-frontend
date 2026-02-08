@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { FC, memo } from 'react';
+import type { FC } from 'react';
 
-export const SignUpLink: FC = memo(() => {
+export const SignUpLink: FC = () => {
   return (
     <p className="text-muted-foreground w-full text-center text-sm">
       Don&apos;t have an account?{' '}
@@ -10,6 +10,4 @@ export const SignUpLink: FC = memo(() => {
       </Link>
     </p>
   );
-});
-
-SignUpLink.displayName = 'SignUpLink';
+};

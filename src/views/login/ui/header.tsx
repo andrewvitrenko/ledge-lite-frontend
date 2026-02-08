@@ -1,8 +1,8 @@
-import { FC, memo } from 'react';
+import type { FC } from 'react';
 
 import { Logo } from '@/shared/ui/logo';
 
-export const Header: FC = memo(() => {
+export const Header: FC = () => {
   return (
     <header className="space-y-4 text-center">
       <div className="flex justify-center">
@@ -16,6 +16,4 @@ export const Header: FC = memo(() => {
       </div>
     </header>
   );
-});
-
-Header.displayName = 'LoginHeader';
+};

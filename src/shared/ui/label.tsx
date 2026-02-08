@@ -1,13 +1,9 @@
-'use client';
-
 import * as LabelPrimitive from '@radix-ui/react-label';
-import { FC, HTMLProps } from 'react';
 
 import { cn } from '@/shared/lib/utils';
+import type { ComponentPropsWithRef, FC } from 'react';
 
-export type TLabelProps = HTMLProps<HTMLLabelElement>;
-
-export const Label: FC<TLabelProps> = ({ className, ...props }) => {
+export const Label: FC<ComponentPropsWithRef<typeof LabelPrimitive.Root>> = ({ className, ...props }) => {
   return (
     <LabelPrimitive.Root
       data-slot="label"

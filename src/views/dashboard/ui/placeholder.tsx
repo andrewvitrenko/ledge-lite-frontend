@@ -1,11 +1,11 @@
 import { BarChart3, Calendar, CalendarPlus, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
-import { FC, memo } from 'react';
+import type { FC } from 'react';
 
 import { Button } from '@/shared/ui/button';
 import { Logo } from '@/shared/ui/logo';
 
-export const Placeholder: FC = memo(() => {
+export const Placeholder: FC = () => {
   return (
     <main className="container mx-auto px-4 py-6">
       <div className="mx-auto max-w-2xl space-y-8 text-center">
@@ -80,6 +80,4 @@ export const Placeholder: FC = memo(() => {
       </div>
     </main>
   );
-});
-
-Placeholder.displayName = 'Placeholder';
+};

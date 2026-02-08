@@ -1,5 +1,5 @@
 import { PieChart } from 'lucide-react';
-import { FC, memo } from 'react';
+import type { FC } from 'react';
 
 import { cn } from '../lib/utils';
 
@@ -7,7 +7,7 @@ type TLogoProps = {
   className?: string;
 };
 
-export const Logo: FC<TLogoProps> = memo(({ className }) => {
+export const Logo: FC<TLogoProps> = ({ className }) => {
   return (
     <div
       className={cn(
@@ -18,6 +18,4 @@ export const Logo: FC<TLogoProps> = memo(({ className }) => {
       <PieChart className="size-1/2" />
     </div>
   );
-});
-
-Logo.displayName = 'Logo';
+};

@@ -7,9 +7,9 @@ import {
   User,
 } from 'lucide-react';
 import Link from 'next/link';
-import { FC, memo } from 'react';
+import type { FC } from 'react';
 
-import { user } from '@/entities/user/config/mock-data';
+import { type TUser } from '@/entities/user';
 import { Avatar, AvatarFallback, AvatarImage } from '@/shared/ui/avatar';
 import { Button } from '@/shared/ui/button';
 import {
@@ -22,7 +22,15 @@ import {
   DropdownMenuTrigger,
 } from '@/shared/ui/dropdown-menu';
 
-export const UserMenu: FC = memo(() => {
+const user = {
+  // @ts-ignore
+  id: 'some',
+  firstName: 'John',
+  lastName: 'Doe',
+  email: '',
+} satisfies TUser;
+
+export const UserMenu: FC = () => {
   const userInitials = `${user.firstName.charAt(0)}${user.lastName.charAt(0)}`;
 
   return (
@@ -91,6 +99,4 @@ export const UserMenu: FC = memo(() => {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-});
-
-UserMenu.displayName = 'UserMenu';
+};

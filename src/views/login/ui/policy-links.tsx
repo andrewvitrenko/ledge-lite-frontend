@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { FC, memo } from 'react';
+import type { FC } from 'react';
 
-export const PolicyLinks: FC = memo(() => {
+export const PolicyLinks: FC = () => {
   return (
     <footer className="text-muted-foreground text-center text-xs">
       <p>
@@ -16,6 +16,4 @@ export const PolicyLinks: FC = memo(() => {
       </p>
     </footer>
   );
-});
-
-PolicyLinks.displayName = 'PolicyLinks';
+};

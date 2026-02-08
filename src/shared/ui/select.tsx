@@ -2,33 +2,28 @@ import * as SelectPrimitive from '@radix-ui/react-select';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 
 import { cn } from '@/shared/lib/utils';
+import type { ComponentPropsWithRef, FC } from 'react';
 
-function Select({
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Root>) {
+export const Select: FC<SelectPrimitive.SelectProps> = (props) => {
   return <SelectPrimitive.Root data-slot="select" {...props} />;
-}
+};
 
-function SelectGroup({
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Group>) {
+export const SelectGroup: FC<ComponentPropsWithRef<typeof SelectPrimitive.Group>> = (props) => {
   return <SelectPrimitive.Group data-slot="select-group" {...props} />;
-}
+};
 
-function SelectValue({
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Value>) {
+export const SelectValue: FC<ComponentPropsWithRef<typeof SelectPrimitive.Value>> = (props) => {
   return <SelectPrimitive.Value data-slot="select-value" {...props} />;
-}
+};
 
-function SelectTrigger({
+export const SelectTrigger: FC<ComponentPropsWithRef<typeof SelectPrimitive.Trigger> & {
+  size?: 'sm' | 'default';
+}> = ({
   className,
   size = 'default',
   children,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Trigger> & {
-  size?: 'sm' | 'default';
-}) {
+}) => {
   return (
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
@@ -45,14 +40,14 @@ function SelectTrigger({
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   );
-}
+};
 
-function SelectContent({
+export const SelectContent: FC<ComponentPropsWithRef<typeof SelectPrimitive.Content>> = ({
   className,
   children,
   position = 'popper',
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Content>) {
+}) => {
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Content
@@ -80,12 +75,12 @@ function SelectContent({
       </SelectPrimitive.Content>
     </SelectPrimitive.Portal>
   );
-}
+};
 
-function SelectLabel({
+export const SelectLabel: FC<ComponentPropsWithRef<typeof SelectPrimitive.Label>> = ({
   className,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Label>) {
+}) => {
   return (
     <SelectPrimitive.Label
       data-slot="select-label"
@@ -93,13 +88,13 @@ function SelectLabel({
       {...props}
     />
   );
-}
+};
 
-function SelectItem({
+export const SelectItem: FC<ComponentPropsWithRef<typeof SelectPrimitive.Item>> = ({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Item>) {
+}) => {
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
@@ -117,12 +112,12 @@ function SelectItem({
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
     </SelectPrimitive.Item>
   );
-}
+};
 
-function SelectSeparator({
+export const SelectSeparator: FC<ComponentPropsWithRef<typeof SelectPrimitive.Separator>> = ({
   className,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Separator>) {
+}) => {
   return (
     <SelectPrimitive.Separator
       data-slot="select-separator"
@@ -130,12 +125,12 @@ function SelectSeparator({
       {...props}
     />
   );
-}
+};
 
-function SelectScrollUpButton({
+export const SelectScrollUpButton: FC<ComponentPropsWithRef<typeof SelectPrimitive.ScrollUpButton>> = ({
   className,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) {
+}) => {
   return (
     <SelectPrimitive.ScrollUpButton
       data-slot="select-scroll-up-button"
@@ -148,12 +143,12 @@ function SelectScrollUpButton({
       <ChevronUpIcon className="size-4" />
     </SelectPrimitive.ScrollUpButton>
   );
-}
+};
 
-function SelectScrollDownButton({
+export const SelectScrollDownButton: FC<ComponentPropsWithRef<typeof SelectPrimitive.ScrollDownButton>> = ({
   className,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) {
+}) => {
   return (
     <SelectPrimitive.ScrollDownButton
       data-slot="select-scroll-down-button"
@@ -166,17 +161,4 @@ function SelectScrollDownButton({
       <ChevronDownIcon className="size-4" />
     </SelectPrimitive.ScrollDownButton>
   );
-}
-
-export {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectScrollDownButton,
-  SelectScrollUpButton,
-  SelectSeparator,
-  SelectTrigger,
-  SelectValue,
 };

@@ -2,13 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FC, memo } from 'react';
+import type { FC } from 'react';
 
 import { cn } from '@/shared/lib/utils';
 
 import { navigation } from '../config';
 
-export const DesktopNav: FC = memo(() => {
+export const DesktopNav: FC = () => {
   const pathname = usePathname();
 
   return (
@@ -31,6 +31,4 @@ export const DesktopNav: FC = memo(() => {
       })}
     </nav>
   );
-});
-
-DesktopNav.displayName = 'DesktopNav';
+};

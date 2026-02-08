@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, memo } from 'react';
+import type { FC } from 'react';
 
 import { useFieldError } from '../../lib/use-field-error';
 
@@ -8,7 +8,7 @@ type TErrorMessageProps = {
   name: string;
 };
 
-export const ErrorMessage: FC<TErrorMessageProps> = memo(({ name }) => {
+export const ErrorMessage: FC<TErrorMessageProps> = ({ name }) => {
   const error = useFieldError(name);
 
   if (!error) return null;
@@ -21,6 +21,4 @@ export const ErrorMessage: FC<TErrorMessageProps> = memo(({ name }) => {
       {error}
     </p>
   );
-});
-
-ErrorMessage.displayName = 'ErrorMessage';
+};
