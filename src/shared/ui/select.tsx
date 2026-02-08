@@ -1,8 +1,8 @@
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
+import type { ComponentPropsWithRef, FC } from 'react';
 
 import { cn } from '@/shared/lib/utils';
-import type { ComponentPropsWithRef, FC } from 'react';
 
 export const Select: FC<SelectPrimitive.SelectProps> = (props) => {
   return <SelectPrimitive.Root data-slot="select" {...props} />;
@@ -16,14 +16,11 @@ export const SelectValue: FC<ComponentPropsWithRef<typeof SelectPrimitive.Value>
   return <SelectPrimitive.Value data-slot="select-value" {...props} />;
 };
 
-export const SelectTrigger: FC<ComponentPropsWithRef<typeof SelectPrimitive.Trigger> & {
-  size?: 'sm' | 'default';
-}> = ({
-  className,
-  size = 'default',
-  children,
-  ...props
-}) => {
+export const SelectTrigger: FC<
+  ComponentPropsWithRef<typeof SelectPrimitive.Trigger> & {
+    size?: 'sm' | 'default';
+  }
+> = ({ className, size = 'default', children, ...props }) => {
   return (
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
@@ -77,10 +74,7 @@ export const SelectContent: FC<ComponentPropsWithRef<typeof SelectPrimitive.Cont
   );
 };
 
-export const SelectLabel: FC<ComponentPropsWithRef<typeof SelectPrimitive.Label>> = ({
-  className,
-  ...props
-}) => {
+export const SelectLabel: FC<ComponentPropsWithRef<typeof SelectPrimitive.Label>> = ({ className, ...props }) => {
   return (
     <SelectPrimitive.Label
       data-slot="select-label"
@@ -134,10 +128,7 @@ export const SelectScrollUpButton: FC<ComponentPropsWithRef<typeof SelectPrimiti
   return (
     <SelectPrimitive.ScrollUpButton
       data-slot="select-scroll-up-button"
-      className={cn(
-        'flex cursor-default items-center justify-center py-1',
-        className,
-      )}
+      className={cn('flex cursor-default items-center justify-center py-1', className)}
       {...props}
     >
       <ChevronUpIcon className="size-4" />
@@ -152,10 +143,7 @@ export const SelectScrollDownButton: FC<ComponentPropsWithRef<typeof SelectPrimi
   return (
     <SelectPrimitive.ScrollDownButton
       data-slot="select-scroll-down-button"
-      className={cn(
-        'flex cursor-default items-center justify-center py-1',
-        className,
-      )}
+      className={cn('flex cursor-default items-center justify-center py-1', className)}
       {...props}
     >
       <ChevronDownIcon className="size-4" />

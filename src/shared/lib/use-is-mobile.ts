@@ -10,6 +10,7 @@ export const useIsMobile = () => {
   }, []);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     checkIsMobile();
 
     window.addEventListener('resize', checkIsMobile);

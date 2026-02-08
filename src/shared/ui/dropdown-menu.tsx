@@ -1,26 +1,19 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { CheckIcon, ChevronRightIcon, CircleIcon } from 'lucide-react';
+import type { ComponentPropsWithRef, FC } from 'react';
 
 import { cn } from '@/shared/lib/utils';
-import type { ComponentPropsWithRef, FC } from 'react';
 
 export const DropdownMenu: FC<DropdownMenuPrimitive.DropdownMenuProps> = (props) => {
   return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
 };
 
 export const DropdownMenuPortal: FC<DropdownMenuPrimitive.DropdownMenuPortalProps> = (props) => {
-  return (
-    <DropdownMenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />
-  );
+  return <DropdownMenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />;
 };
 
 export const DropdownMenuTrigger: FC<ComponentPropsWithRef<typeof DropdownMenuPrimitive.Trigger>> = (props) => {
-  return (
-    <DropdownMenuPrimitive.Trigger
-      data-slot="dropdown-menu-trigger"
-      {...props}
-    />
-  );
+  return <DropdownMenuPrimitive.Trigger data-slot="dropdown-menu-trigger" {...props} />;
 };
 
 export const DropdownMenuContent: FC<ComponentPropsWithRef<typeof DropdownMenuPrimitive.Content>> = ({
@@ -44,20 +37,15 @@ export const DropdownMenuContent: FC<ComponentPropsWithRef<typeof DropdownMenuPr
 };
 
 export const DropdownMenuGroup: FC<ComponentPropsWithRef<typeof DropdownMenuPrimitive.Group>> = (props) => {
-  return (
-    <DropdownMenuPrimitive.Group data-slot="dropdown-menu-group" {...props} />
-  );
+  return <DropdownMenuPrimitive.Group data-slot="dropdown-menu-group" {...props} />;
 };
 
-export const DropdownMenuItem: FC<ComponentPropsWithRef<typeof DropdownMenuPrimitive.Item> & {
-  inset?: boolean;
-  variant?: 'default' | 'destructive';
-}> = ({
-  className,
-  inset,
-  variant = 'default',
-  ...props
-}) => {
+export const DropdownMenuItem: FC<
+  ComponentPropsWithRef<typeof DropdownMenuPrimitive.Item> & {
+    inset?: boolean;
+    variant?: 'default' | 'destructive';
+  }
+> = ({ className, inset, variant = 'default', ...props }) => {
   return (
     <DropdownMenuPrimitive.Item
       data-slot="dropdown-menu-item"
@@ -99,12 +87,7 @@ export const DropdownMenuCheckboxItem: FC<ComponentPropsWithRef<typeof DropdownM
 };
 
 export const DropdownMenuRadioGroup: FC<ComponentPropsWithRef<typeof DropdownMenuPrimitive.RadioGroup>> = (props) => {
-  return (
-    <DropdownMenuPrimitive.RadioGroup
-      data-slot="dropdown-menu-radio-group"
-      {...props}
-    />
-  );
+  return <DropdownMenuPrimitive.RadioGroup data-slot="dropdown-menu-radio-group" {...props} />;
 };
 
 export const DropdownMenuRadioItem: FC<ComponentPropsWithRef<typeof DropdownMenuPrimitive.RadioItem>> = ({
@@ -131,21 +114,16 @@ export const DropdownMenuRadioItem: FC<ComponentPropsWithRef<typeof DropdownMenu
   );
 };
 
-export const DropdownMenuLabel: FC<ComponentPropsWithRef<typeof DropdownMenuPrimitive.Label> & {
-  inset?: boolean;
-}> = ({
-  className,
-  inset,
-  ...props
-}) => {
+export const DropdownMenuLabel: FC<
+  ComponentPropsWithRef<typeof DropdownMenuPrimitive.Label> & {
+    inset?: boolean;
+  }
+> = ({ className, inset, ...props }) => {
   return (
     <DropdownMenuPrimitive.Label
       data-slot="dropdown-menu-label"
       data-inset={inset}
-      className={cn(
-        'px-2 py-1.5 text-sm font-medium data-[inset]:pl-8',
-        className,
-      )}
+      className={cn('px-2 py-1.5 text-sm font-medium data-[inset]:pl-8', className)}
       {...props}
     />
   );
@@ -164,17 +142,11 @@ export const DropdownMenuSeparator: FC<ComponentPropsWithRef<typeof DropdownMenu
   );
 };
 
-export const DropdownMenuShortcut: FC<ComponentPropsWithRef<'span'>> = ({
-  className,
-  ...props
-}) => {
+export const DropdownMenuShortcut: FC<ComponentPropsWithRef<'span'>> = ({ className, ...props }) => {
   return (
     <span
       data-slot="dropdown-menu-shortcut"
-      className={cn(
-        'text-muted-foreground ml-auto text-xs tracking-widest',
-        className,
-      )}
+      className={cn('text-muted-foreground ml-auto text-xs tracking-widest', className)}
       {...props}
     />
   );
@@ -184,14 +156,11 @@ export const DropdownMenuSub: FC<DropdownMenuPrimitive.DropdownMenuSubProps> = (
   return <DropdownMenuPrimitive.Sub data-slot="dropdown-menu-sub" {...props} />;
 };
 
-export const DropdownMenuSubTrigger: FC<ComponentPropsWithRef<typeof DropdownMenuPrimitive.SubTrigger> & {
-  inset?: boolean;
-}> = ({
-  className,
-  inset,
-  children,
-  ...props
-}) => {
+export const DropdownMenuSubTrigger: FC<
+  ComponentPropsWithRef<typeof DropdownMenuPrimitive.SubTrigger> & {
+    inset?: boolean;
+  }
+> = ({ className, inset, children, ...props }) => {
   return (
     <DropdownMenuPrimitive.SubTrigger
       data-slot="dropdown-menu-sub-trigger"

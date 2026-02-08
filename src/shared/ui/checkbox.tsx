@@ -1,8 +1,8 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { CheckIcon } from 'lucide-react';
+import type { ComponentPropsWithRef, FC } from 'react';
 
 import { cn } from '@/shared/lib/utils';
-import type { ComponentPropsWithRef, FC } from 'react';
 
 export const Checkbox: FC<ComponentPropsWithRef<typeof CheckboxPrimitive.Root>> = ({ className, ...props }) => {
   return (

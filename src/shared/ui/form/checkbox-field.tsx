@@ -9,8 +9,7 @@ import { Checkbox } from '@/shared/ui/checkbox';
 import type { TFieldProps } from '../../model/form';
 import { ErrorMessage } from './error-message';
 
-export type TCheckboxFieldProps = Omit<HTMLProps<HTMLButtonElement>, 'type'> &
-  Omit<TFieldProps, 'label'>;
+export type TCheckboxFieldProps = Omit<HTMLProps<HTMLButtonElement>, 'type'> & Omit<TFieldProps, 'label'>;
 
 export const CheckboxField: FC<PropsWithChildren<TCheckboxFieldProps>> = ({
   name,

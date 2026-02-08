@@ -1,12 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import {
-  type FieldError,
-  type FieldValues,
-  type FormState,
-  useFormContext,
-} from 'react-hook-form';
+import { type FieldError, type FieldValues, type FormState, useFormContext } from 'react-hook-form';
 
 export const useFieldError = (name: string): string | null => {
   const [error, setError] = useState<string | null>(null);

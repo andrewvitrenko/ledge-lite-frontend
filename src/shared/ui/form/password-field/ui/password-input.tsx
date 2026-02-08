@@ -1,7 +1,7 @@
 'use client';
 
 import { Eye, EyeOff } from 'lucide-react';
-import { type FC, useState, type ComponentPropsWithRef } from 'react';
+import { type ComponentPropsWithRef, type FC, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import { useFieldError } from '@/shared/lib/use-field-error';

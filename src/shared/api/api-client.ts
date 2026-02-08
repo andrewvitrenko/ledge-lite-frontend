@@ -39,11 +39,9 @@ apiClient.interceptors.response.use(
       try {
         const refreshToken = cookie.get(REFRESH_TOKEN_KEY); // Retrieve the stored refresh token.
         // Make a request to your auth server to refresh the token.
-        const response = await axios.post<TTokens>(
-          `${process.env.NEXT_PUBLIC_API_URL}/auth/refresh`,
-          undefined,
-          { headers: { Authorization: `Bearer ${refreshToken}` } },
-        );
+        const response = await axios.post<TTokens>(`${process.env.NEXT_PUBLIC_API_URL}/auth/refresh`, undefined, {
+          headers: { Authorization: `Bearer ${refreshToken}` },
+        });
         const { access_token, refresh_token: newRefreshToken } = response.data;
         // Store the new access and refresh tokens.
         cookie.set(ACCESS_TOKEN_KEY, access_token, {

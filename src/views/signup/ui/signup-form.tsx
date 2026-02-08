@@ -3,12 +3,12 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
 import type { FC } from 'react';
-import { FormProvider, useForm, type SubmitHandler } from 'react-hook-form';
+import { FormProvider, type SubmitHandler, useForm } from 'react-hook-form';
 
 import { CheckboxField, InputField, PasswordField } from '@/shared/ui/form';
 
+import { type TSignupForm, validationSchema } from '../model/signup-form.schema';
 import { SubmitButton } from './submit-button';
-import { validationSchema, type TSignupForm } from '../model/signup-form.schema';
 
 type TSignupFormProps = {
   onSubmit: SubmitHandler<TSignupForm>;

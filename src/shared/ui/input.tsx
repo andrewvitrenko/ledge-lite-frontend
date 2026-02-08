@@ -1,5 +1,6 @@
-import { cn } from '../lib/utils';
 import type { ComponentPropsWithRef, FC } from 'react';
+
+import { cn } from '../lib/utils';
 
 export const Input: FC<ComponentPropsWithRef<'input'>> = ({ type = 'text', className, ...props }) => {
   return (

@@ -14,41 +14,32 @@ export const Placeholder: FC = () => {
           <Logo className="mx-auto size-24" />
           <div>
             <h1 className="text-3xl font-bold">Welcome to LedgerLite</h1>
-            <p className="text-muted-foreground mt-2 text-lg">
-              Get started by creating your first budget period
-            </p>
+            <p className="text-muted-foreground mt-2 text-lg">Get started by creating your first budget period</p>
           </div>
         </div>
 
         {/* Description */}
         <div className="space-y-4">
           <p className="text-muted-foreground">
-            Budget periods help you organize your finances by time frames. You
-            can track income, expenses, and transfers within each period to get
-            a clear picture of your financial health.
+            Budget periods help you organize your finances by time frames. You can track income, expenses, and transfers
+            within each period to get a clear picture of your financial health.
           </p>
 
           <div className="grid grid-cols-1 gap-4 text-sm md:grid-cols-3">
             <div className="bg-muted/50 rounded-lg p-4">
               <Calendar className="text-primary mx-auto mb-2 h-6 w-6" />
               <div className="font-medium">Set Time Frame</div>
-              <div className="text-muted-foreground">
-                Define start and end dates
-              </div>
+              <div className="text-muted-foreground">Define start and end dates</div>
             </div>
             <div className="bg-muted/50 rounded-lg p-4">
               <TrendingUp className="text-primary mx-auto mb-2 h-6 w-6" />
               <div className="font-medium">Track Progress</div>
-              <div className="text-muted-foreground">
-                Monitor income and expenses
-              </div>
+              <div className="text-muted-foreground">Monitor income and expenses</div>
             </div>
             <div className="bg-muted/50 rounded-lg p-4">
               <BarChart3 className="text-primary mx-auto mb-2 h-6 w-6" />
               <div className="font-medium">Analyze Results</div>
-              <div className="text-muted-foreground">
-                Review financial insights
-              </div>
+              <div className="text-muted-foreground">Review financial insights</div>
             </div>
           </div>
         </div>
@@ -63,8 +54,7 @@ export const Placeholder: FC = () => {
           </Button>
 
           <p className="text-muted-foreground text-sm">
-            You can always create additional periods later or modify existing
-            ones.
+            You can always create additional periods later or modify existing ones.
           </p>
         </div>
 

@@ -1,8 +1,8 @@
 import * as SheetPrimitive from '@radix-ui/react-dialog';
 import { XIcon } from 'lucide-react';
+import type { ComponentPropsWithRef, FC } from 'react';
 
 import { cn } from '@/shared/lib/utils';
-import type { ComponentPropsWithRef, FC } from 'react';
 
 export const Sheet: FC<SheetPrimitive.DialogProps> = (props) => {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />;
@@ -20,10 +20,7 @@ export const SheetPortal: FC<SheetPrimitive.DialogPortalProps> = (props) => {
   return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />;
 };
 
-export const SheetOverlay: FC<ComponentPropsWithRef<typeof SheetPrimitive.Overlay>> = ({
-  className,
-  ...props
-}) => {
+export const SheetOverlay: FC<ComponentPropsWithRef<typeof SheetPrimitive.Overlay>> = ({ className, ...props }) => {
   return (
     <SheetPrimitive.Overlay
       data-slot="sheet-overlay"
@@ -36,14 +33,11 @@ export const SheetOverlay: FC<ComponentPropsWithRef<typeof SheetPrimitive.Overla
   );
 };
 
-export const SheetContent: FC<ComponentPropsWithRef<typeof SheetPrimitive.Content> & {
-  side?: 'top' | 'right' | 'bottom' | 'left';
-}> = ({
-  className,
-  children,
-  side = 'right',
-  ...props
-}) => {
+export const SheetContent: FC<
+  ComponentPropsWithRef<typeof SheetPrimitive.Content> & {
+    side?: 'top' | 'right' | 'bottom' | 'left';
+  }
+> = ({ className, children, side = 'right', ...props }) => {
   return (
     <SheetPortal>
       <SheetOverlay />
@@ -74,29 +68,14 @@ export const SheetContent: FC<ComponentPropsWithRef<typeof SheetPrimitive.Conten
 };
 
 export const SheetHeader: FC<ComponentPropsWithRef<'div'>> = ({ className, ...props }) => {
-  return (
-    <div
-      data-slot="sheet-header"
-      className={cn('flex flex-col gap-1.5 p-4', className)}
-      {...props}
-    />
-  );
+  return <div data-slot="sheet-header" className={cn('flex flex-col gap-1.5 p-4', className)} {...props} />;
 };
 
 export const SheetFooter: FC<ComponentPropsWithRef<'div'>> = ({ className, ...props }) => {
-  return (
-    <div
-      data-slot="sheet-footer"
-      className={cn('mt-auto flex flex-col gap-2 p-4', className)}
-      {...props}
-    />
-  );
+  return <div data-slot="sheet-footer" className={cn('mt-auto flex flex-col gap-2 p-4', className)} {...props} />;
 };
 
-export const SheetTitle: FC<ComponentPropsWithRef<typeof SheetPrimitive.Title>> = ({
-  className,
-  ...props
-}) => {
+export const SheetTitle: FC<ComponentPropsWithRef<typeof SheetPrimitive.Title>> = ({ className, ...props }) => {
   return (
     <SheetPrimitive.Title
       data-slot="sheet-title"

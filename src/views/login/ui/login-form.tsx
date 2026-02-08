@@ -1,18 +1,18 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { type FC, memo } from 'react';
-import { FormProvider, useForm, type SubmitHandler } from 'react-hook-form';
+import Link from 'next/link';
+import { type FC } from 'react';
+import { FormProvider, type SubmitHandler, useForm } from 'react-hook-form';
 
 import { InputField, PasswordField } from '@/shared/ui/form';
 
-import { SubmitButton } from './submit-button';
-import Link from 'next/link';
 import { loginFormSchema, type TLoginForm } from '../model/login-form.schema';
+import { SubmitButton } from './submit-button';
 
 type TLoginFormProps = {
   onSubmit: SubmitHandler<TLoginForm>;
-}
+};
 
 export const LoginForm: FC<TLoginFormProps> = ({ onSubmit }) => {
   const form = useForm<TLoginForm>({

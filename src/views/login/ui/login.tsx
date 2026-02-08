@@ -1,15 +1,15 @@
-import { type FC, memo } from 'react';
+import { useRouter } from 'next/navigation';
+import { type FC } from 'react';
+import type { SubmitHandler } from 'react-hook-form';
 
+import { useLogin } from '@/features/auth';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/shared/ui/card';
 
+import type { TLoginForm } from '../model/login-form.schema';
 import { Header } from './header';
 import { LoginForm } from './login-form';
 import { PolicyLinks } from './policy-links';
 import { SignUpLink } from './sign-up-link';
-import { useLogin } from '@/features/auth';
-import type { SubmitHandler } from 'react-hook-form';
-import type { TLoginForm } from '../model/login-form.schema';
-import { useRouter } from 'next/navigation';
 
 export const LoginPage: FC = () => {
   const { mutateAsync } = useLogin();
@@ -22,7 +22,7 @@ export const LoginPage: FC = () => {
   };
 
   return (
-    <div className="from-primary/5 via-background to-secondary/5 flex min-h-dvh items-center justify-center bg-gradient-to-br p-4">
+    <div className="from-primary/5 via-background to-secondary/5 flex min-h-dvh items-center justify-center bg-linear-to-br p-4">
       <div className="w-full max-w-md space-y-8">
         {/* Logo and Header */}
         <Header />

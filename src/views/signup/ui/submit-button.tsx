@@ -1,9 +1,10 @@
 'use client';
 
-import { type FC, memo } from 'react';
+import { type FC } from 'react';
 import { useFormState } from 'react-hook-form';
 
 import { Button } from '@/shared/ui/button';
+
 import type { TSignupForm } from '../model/signup-form.schema';
 
 export const SubmitButton: FC = () => {

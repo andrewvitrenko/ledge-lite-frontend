@@ -1,24 +1,17 @@
 // @ts-check
-import { FlatCompat } from '@eslint/eslintrc';
 import eslint from '@eslint/js';
+import { defineConfig, globalIgnores } from 'eslint/config';
+import nextWebVitals from 'eslint-config-next/core-web-vitals';
+import nextTypeScript from 'eslint-config-next/typescript';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  { ignores: ['node_modules/**', '.next/**', 'next-env.d.ts'] },
+const eslintConfig = defineConfig([
+  ...nextWebVitals,
+  ...nextTypeScript,
   eslint.configs.recommended,
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
   eslintConfigPrettier,
   eslintPluginPrettier,
   {
@@ -34,6 +27,7 @@ const eslintConfig = [
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
       'no-console': ['error', { allow: ['warn', 'error'] }],
+      'no-redeclare': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
@@ -47,6 +41,13 @@ const eslintConfig = [
       ],
     },
   },
-];
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
+  ]),
+]);
 
 export default eslintConfig;

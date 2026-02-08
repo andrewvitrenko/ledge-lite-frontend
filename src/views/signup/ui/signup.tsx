@@ -1,23 +1,16 @@
+import { useRouter } from 'next/navigation';
 import type { FC } from 'react';
+import type { SubmitHandler } from 'react-hook-form';
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/shared/ui/card';
+import { useSignup } from '@/features/auth';
+import { omit } from '@/shared/lib/omit';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/shared/ui/card';
 
+import type { TSignupForm } from '../model/signup-form.schema';
 import { Features } from './features';
 import { Header } from './header';
 import { LoginLink } from './login-link';
 import { SignupForm } from './signup-form';
-import { useSignup } from '@/features/auth';
-import { useRouter } from 'next/navigation';
-import type { SubmitHandler } from 'react-hook-form';
-import type { TSignupForm } from '../model/signup-form.schema';
-import { omit } from '@/shared/lib/omit';
 
 export const SignupPage: FC = () => {
   const { mutateAsync } = useSignup();
@@ -39,9 +32,7 @@ export const SignupPage: FC = () => {
         <Card className="border-0 shadow-xl">
           <CardHeader className="space-y-1 pb-4">
             <CardTitle className="text-center text-2xl">Sign up</CardTitle>
-            <CardDescription className="text-center">
-              Create your LedgerLite account to get started
-            </CardDescription>
+            <CardDescription className="text-center">Create your LedgerLite account to get started</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <SignupForm onSubmit={onSignup} />

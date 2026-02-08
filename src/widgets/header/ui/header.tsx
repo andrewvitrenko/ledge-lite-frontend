@@ -1,3 +1,5 @@
+'use client';
+
 import { Plus } from 'lucide-react';
 import Link from 'next/link';
 import type { FC } from 'react';
@@ -15,7 +17,7 @@ export const Header: FC = () => {
   const isMobile = useIsMobile();
 
   return (
-    <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 border-b-border sticky top-0 z-50 w-full border-b backdrop-blur">
+    <header className="bg-background/95 supports-backdrop-filter:bg-background/60 border-b-border sticky top-0 z-50 w-full border-b backdrop-blur">
       <div className="container mx-auto flex h-16 items-center px-4 md:px-8">
         <MobileNav />
         <div className="flex md:mr-4">

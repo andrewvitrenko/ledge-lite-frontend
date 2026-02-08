@@ -14,10 +14,7 @@ export const ErrorMessage: FC<TErrorMessageProps> = ({ name }) => {
   if (!error) return null;
 
   return (
-    <p
-      id={`${name}-error`}
-      className="text-destructive animate-fade-in text-sm"
-    >
+    <p id={`${name}-error`} className="text-destructive animate-fade-in text-sm">
       {error}
     </p>
   );

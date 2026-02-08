@@ -1,5 +1,6 @@
-import { PASSWORD_VALIDATION } from '@/shared/config/validation';
 import { z } from 'zod';
+
+import { PASSWORD_VALIDATION } from '@/shared/config/validation';
 
 export const validationSchema = z
   .object({

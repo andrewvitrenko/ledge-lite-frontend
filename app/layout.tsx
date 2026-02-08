@@ -2,12 +2,12 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { ThemeProvider } from 'next-themes';
 import type { FC, PropsWithChildren } from 'react';
 
 import { Toaster } from '@/shared/ui/sonner';
 
 import { QueryProvider } from './providers/query-provider';
+import { ThemeProvider } from './providers/theme-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -39,13 +39,7 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          enableColorScheme
-          enableSystem
-          defaultTheme="system"
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" enableColorScheme enableSystem defaultTheme="system" disableTransitionOnChange>
           <QueryProvider>{children}</QueryProvider>
           <Toaster />
         </ThemeProvider>

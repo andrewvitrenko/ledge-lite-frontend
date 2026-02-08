@@ -1,11 +1,4 @@
-import {
-  Bell,
-  Download,
-  HelpCircle,
-  LogOut,
-  Settings,
-  User,
-} from 'lucide-react';
+import { Bell, Download, HelpCircle, LogOut, Settings, User } from 'lucide-react';
 import Link from 'next/link';
 import type { FC } from 'react';
 
@@ -38,10 +31,7 @@ export const UserMenu: FC = () => {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
           <Avatar className="h-8 w-8">
-            <AvatarImage
-              src="/avatars/01.png"
-              alt={`${user.firstName} ${user.lastName}`}
-            />
+            <AvatarImage src="/avatars/01.png" alt={`${user.firstName} ${user.lastName}`} />
             <AvatarFallback>{userInitials}</AvatarFallback>
           </Avatar>
         </Button>
@@ -52,9 +42,7 @@ export const UserMenu: FC = () => {
             <p className="text-sm leading-none font-medium">
               {user.firstName} {user.lastName}
             </p>
-            <p className="text-muted-foreground text-xs leading-none">
-              {user.email}
-            </p>
+            <p className="text-muted-foreground text-xs leading-none">{user.email}</p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
