@@ -28,6 +28,7 @@ const eslintConfig = defineConfig([
       'react-hooks/exhaustive-deps': 'warn',
       'no-console': ['error', { allow: ['warn', 'error'] }],
       'no-redeclare': 'off',
+      'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [

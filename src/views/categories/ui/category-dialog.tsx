@@ -4,21 +4,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 
+import type { TCategory } from '@/entities/category';
 import { useMediaQuery } from '@/hooks/use-media-query';
-import type { Category } from '@/lib/types';
-import {
-  type CategoryFormData,
-  categoryFormSchema,
-} from '@/lib/validations/core';
+import { type CategoryFormData, categoryFormSchema } from '@/lib/validations/core';
 import { Button } from '@/shared/ui/button';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from '@/shared/ui/dialog';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/shared/ui/dialog';
 import {
   Drawer,
   DrawerClose,
@@ -36,16 +26,11 @@ import { CategoryColorPicker } from './category-color-picker';
 interface CategoryDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  category?: Category;
+  category?: TCategory;
   onSubmit: (data: CategoryFormData) => Promise<void>;
 }
 
-export function CategoryDialog({
-  open,
-  onOpenChange,
-  category,
-  onSubmit,
-}: CategoryDialogProps) {
+export function CategoryDialog({ open, onOpenChange, category, onSubmit }: CategoryDialogProps) {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
 
@@ -92,70 +77,12 @@ export function CategoryDialog({
     ? 'Update the category name and color.'
     : 'Create a new category to organize your transactions.';
 
-  const CategoryForm = () => (
-    <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
-      <div className="space-y-2">
-        <Label htmlFor="name">Name</Label>
-        <Input
-          id="name"
-          placeholder="Enter category name"
-          {...form.register('name')}
-          disabled={isSubmitting}
-        />
-        {form.formState.errors.name && (
-          <p className="text-destructive text-sm">
-            {form.formState.errors.name.message}
-          </p>
-        )}
-      </div>
-
-      <div className="space-y-2">
-        <Label>Color</Label>
-        <CategoryColorPicker
-          value={form.watch('color')}
-          onChange={(color) => form.setValue('color', color)}
-          disabled={isSubmitting}
-        />
-        {form.formState.errors.color && (
-          <p className="text-destructive text-sm">
-            {form.formState.errors.color.message}
-          </p>
-        )}
-      </div>
-
-      {isDesktop ? (
-        <DialogFooter>
-          <Button
-            type="button"
-            variant="outline"
-            onClick={() => onOpenChange(false)}
-            disabled={isSubmitting}
-          >
-            Cancel
-          </Button>
-          <Button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? 'Saving...' : category ? 'Update' : 'Create'}
-          </Button>
-        </DialogFooter>
-      ) : (
-        <DrawerFooter>
-          <Button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? 'Saving...' : category ? 'Update' : 'Create'}
-          </Button>
-          <DrawerClose asChild>
-            <Button variant="outline" disabled={isSubmitting}>
-              Cancel
-            </Button>
-          </DrawerClose>
-        </DrawerFooter>
-      )}
-    </form>
-  );
+  
 
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="sm:max-w-106.25">
           <DialogHeader>
             <DialogTitle>{title}</DialogTitle>
             <DialogDescription>{description}</DialogDescription>

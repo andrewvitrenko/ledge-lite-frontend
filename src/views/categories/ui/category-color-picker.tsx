@@ -32,25 +32,14 @@ interface CategoryColorPickerProps {
   disabled?: boolean;
 }
 
-export function CategoryColorPicker({
-  value,
-  onChange,
-  disabled,
-}: CategoryColorPickerProps) {
+export function CategoryColorPicker({ value, onChange, disabled }: CategoryColorPickerProps) {
   const [open, setOpen] = React.useState(false);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          className="w-full justify-start bg-transparent"
-          disabled={disabled}
-        >
-          <div
-            className="mr-2 h-4 w-4 rounded-full border border-gray-300"
-            style={{ backgroundColor: value }}
-          />
+        <Button variant="outline" className="w-full justify-start bg-transparent" disabled={disabled}>
+          <div className="mr-2 h-4 w-4 rounded-full border border-gray-300" style={{ backgroundColor: value }} />
           Color
         </Button>
       </PopoverTrigger>
@@ -71,9 +60,7 @@ export function CategoryColorPicker({
               }}
               disabled={disabled}
             >
-              {value === color && (
-                <Check className="absolute inset-0 m-auto h-4 w-4 text-white" />
-              )}
+              {value === color && <Check className="absolute inset-0 m-auto h-4 w-4 text-white" />}
             </button>
           ))}
         </div>

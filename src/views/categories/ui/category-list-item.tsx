@@ -1,7 +1,9 @@
 'use client';
 
 import { Edit, Hash, MoreHorizontal, Trash2 } from 'lucide-react';
+import { type FC, useState } from 'react';
 
+import type { TCategory } from '@/entities/category';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -12,7 +14,6 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/shared/ui/alert-dialog';
-import { Badge } from '@/shared/ui/badge';
 import { Button } from '@/shared/ui/button';
 import { Card, CardContent } from '@/shared/ui/card';
 import {
@@ -23,20 +24,15 @@ import {
   DropdownMenuTrigger,
 } from '@/shared/ui/dropdown-menu';
 
-interface CategoryListItemProps {
-  category: Category;
+type TCategoryListItemProps = {
+  category: TCategory;
   transactionCount: number;
-  onEdit: (category: Category) => void;
+  onEdit: (category: TCategory) => void;
   onDelete: (categoryId: string) => void;
-}
+};
 
-export function CategoryListItem({
-  category,
-  transactionCount,
-  onEdit,
-  onDelete,
-}: CategoryListItemProps) {
-  const [showDeleteDialog, setShowDeleteDialog] = React.useState(false);
+export const CategoryListItem: FC<TCategoryListItemProps> = ({ category, transactionCount, onEdit, onDelete }) => {
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
   const handleDelete = () => {
     onDelete(category.id);
@@ -63,7 +59,6 @@ export function CategoryListItem({
             </div>
 
             <div className="flex items-center gap-2">
-              <Badge variant="secondary">{transactionCount}</Badge>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="sm">
@@ -96,12 +91,11 @@ export function CategoryListItem({
           <AlertDialogHeader>
             <AlertDialogTitle>Delete Category</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to delete "{category.name}"?
+              Are you sure you want to delete &quot;{category.name}&quot;?
               {transactionCount > 0 && (
                 <span className="mt-2 block text-amber-600">
                   Warning: This category has {transactionCount} transaction
-                  {transactionCount !== 1 ? 's' : ''}. Deleting it will remove
-                  the category from those transactions.
+                  {transactionCount !== 1 ? 's' : ''}. Deleting it will remove the category from those transactions.
                 </span>
               )}
             </AlertDialogDescription>
@@ -119,4 +113,4 @@ export function CategoryListItem({
       </AlertDialog>
     </>
   );
-}
+};

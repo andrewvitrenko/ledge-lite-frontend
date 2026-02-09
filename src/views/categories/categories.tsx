@@ -2,21 +2,9 @@ import { Filter, Plus, Search } from 'lucide-react';
 import { FC } from 'react';
 
 import { Button } from '@/shared/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/shared/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/ui/card';
 import { Input } from '@/shared/ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/shared/ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui/tabs';
 import { Header } from '@/widgets/header';
 
@@ -31,9 +19,7 @@ export const CategoriesPage: FC = () => {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-2xl font-bold">Categories</h1>
-            <p className="text-muted-foreground">
-              Organize your transactions with custom categories
-            </p>
+            <p className="text-muted-foreground">Organize your transactions with custom categories</p>
           </div>
           <Button onClick={openCreateDialog}>
             <Plus className="mr-2 h-4 w-4" />
@@ -54,10 +40,7 @@ export const CategoriesPage: FC = () => {
                   className="pl-10"
                 />
               </div>
-              <Select
-                value={sortBy}
-                onValueChange={(value: any) => setSortBy(value)}
-              >
+              <Select value={sortBy} onValueChange={(value: any) => setSortBy(value)}>
                 <SelectTrigger className="w-full sm:w-[180px]">
                   <Filter className="mr-2 h-4 w-4" />
                   <SelectValue />
@@ -87,9 +70,7 @@ export const CategoriesPage: FC = () => {
                     <div className="bg-muted mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full">
                       <Plus className="text-muted-foreground h-6 w-6" />
                     </div>
-                    <h3 className="mb-2 text-lg font-medium">
-                      No categories found
-                    </h3>
+                    <h3 className="mb-2 text-lg font-medium">No categories found</h3>
                     <p className="text-muted-foreground mb-4">
                       {searchQuery
                         ? 'No categories match your search criteria.'
@@ -107,9 +88,7 @@ export const CategoriesPage: FC = () => {
             ) : (
               <div className="space-y-2">
                 {filteredCategories.map((category) => {
-                  const stats = mockCategoryStats.find(
-                    (s) => s.categoryId === category.id,
-                  );
+                  const stats = mockCategoryStats.find((s) => s.categoryId === category.id);
                   return (
                     <CategoryListItem
                       key={category.id}
@@ -128,9 +107,7 @@ export const CategoriesPage: FC = () => {
             <Card>
               <CardHeader>
                 <CardTitle>Category Statistics</CardTitle>
-                <CardDescription>
-                  Transaction totals for the current active period
-                </CardDescription>
+                <CardDescription>Transaction totals for the current active period</CardDescription>
               </CardHeader>
             </Card>
 
@@ -141,12 +118,9 @@ export const CategoriesPage: FC = () => {
                     <div className="bg-muted mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full">
                       <Filter className="text-muted-foreground h-6 w-6" />
                     </div>
-                    <h3 className="mb-2 text-lg font-medium">
-                      No statistics available
-                    </h3>
+                    <h3 className="mb-2 text-lg font-medium">No statistics available</h3>
                     <p className="text-muted-foreground">
-                      Statistics will appear here once you have transactions in
-                      your active period.
+                      Statistics will appear here once you have transactions in your active period.
                     </p>
                   </div>
                 </CardContent>

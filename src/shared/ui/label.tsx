@@ -10,7 +10,7 @@ export const Label: FC<ComponentPropsWithRef<typeof LabelPrimitive.Root>> = ({ c
       className={cn(
         [
           'flex items-center gap-2 text-sm leading-none font-medium select-none',
-          'group-has-[*:disabled]:pointer-events-none group-has-[*:disabled]:cursor-not-allowed group-has-[*:disabled]:opacity-50',
+          'group-has-disabled:pointer-events-none group-has-disabled:cursor-not-allowed group-has-disabled:opacity-50',
           'group-has-[*[aria-required=true]]:after:text-destructive group-has-[*[aria-required=true]]:after:content-["*"]',
         ],
         className,

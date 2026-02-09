@@ -1,12 +1,12 @@
-import { TPaginatedResponse, TPaginationOptions } from '@/shared/api';
+import type { TPaginatedResponse, TPaginationParams } from '@/shared/model/api';
 
-import { TCategory } from '../model/types';
+import type { TCategory } from './types';
 
 export type TGetAllCategoriesResponse = TPaginatedResponse<TCategory>;
 
 export type TGetAllCategoriesParams = {
-  filter?: string;
-} & TPaginationOptions;
+  search?: string;
+} & TPaginationParams;
 
 export type TCreateCategoryPayload = Pick<TCategory, 'name' | 'color'>;
 
